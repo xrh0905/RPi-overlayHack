@@ -33,7 +33,7 @@
 		gpio =       <&charger>,"reg:0",
 		             <&pin_state>,"brcm,pins:0",
 		             <&pin_state>,"reg:0";
-		label =      <&charger>,"charger-type";
+		type =       <&charger>,"charger-type";
 		gpio_pull =  <&pin_state>,"brcm,pull:0";
 		active_low = <&charger>,"gpios:8";
 	};
