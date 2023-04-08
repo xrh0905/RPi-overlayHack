@@ -26,8 +26,7 @@
 		pcf8574  = <&pcf857x>,"compatible=nxp,pcf8574",  <&pcf857x>,"reg:0=0x20";
 		pcf8574a = <&pcf857x>,"compatible=nxp,pcf8574a", <&pcf857x>,"reg:0=0x38";
 		pcf8575  = <&pcf857x>,"compatible=nxp,pcf8575",  <&pcf857x>,"reg:0=0x20";
-		pca8574  = <&pcf857x>,"compatible=nxp,pca8574", <&pcf857x>,"reg:0=0x38";
-
+		pca8574  = <&pcf857x>,"compatible=nxp,pca8574", <&pcf857x>,"reg:0=0x20";
 		addr = <&pcf857x>,"reg:0";
 	};
 };
