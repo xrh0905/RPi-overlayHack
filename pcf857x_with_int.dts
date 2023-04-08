@@ -18,6 +18,27 @@
 				gpio-controller;
 				#gpio-cells = <2>;
 				status = "okay";
+				#interrupt-cells = <2>;
+				interrupts = <25 2>;
+			};
+		};
+		fragment@1 {
+			target = <&pcf857x>;
+			__dormant__ {
+				interrupt-parent = <&gpio>;
+				interrupt-controller;
+				pinctrl-names = "default";
+				pinctrl-0 = <&pcf857x_int_pins>;
+			};
+		};
+		fragment@2 {
+			target = <&gpio>;
+			__dormant__ {
+				pcf857x_int_pins: pcf857x_int_pins {
+					brcm,pins = <0>;  /* overwritten by int-gpio parameter */
+					brcm,function = <0>;
+					brcm,pull = <0>;
+				};
 			};
 		};
 	};
@@ -27,7 +48,9 @@
 		pcf8574a = <&pcf857x>,"compatible=nxp,pcf8574a", <&pcf857x>,"reg:0=0x38";
 		pcf8575  = <&pcf857x>,"compatible=nxp,pcf8575",  <&pcf857x>,"reg:0=0x20";
 		pca8574  = <&pcf857x>,"compatible=nxp,pca8574", <&pcf857x>,"reg:0=0x38";
-
+		int_pin =  <&pcf857x_int_pins>,"brcm,pins:0",
+		           <&pcf857x_int_pins>,"reg:0";
+				   <&pcf857x>,"interrupts:0",
 		addr = <&pcf857x>,"reg:0";
 	};
 };
